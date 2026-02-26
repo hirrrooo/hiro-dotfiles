@@ -102,6 +102,13 @@
             ],
             "left": [
                 {
+                    "defaultSettings": {
+                        "customColor": "none",
+                        "showConditionIcon": true,
+                        "showTempUnit": true,
+                        "showTempValue": true,
+                        "tooltipOption": "everything"
+                    },
                     "id": "plugin:weather-indicator"
                 },
                 {
@@ -165,6 +172,8 @@
                     "hidePassive": false,
                     "id": "Tray",
                     "pinned": [
+                        "Equibop",
+                        "spotify-client"
                     ]
                 },
                 {
@@ -431,7 +440,7 @@
         "bluetoothRssiPollingEnabled": true,
         "disableDiscoverability": false,
         "wifiDetailsViewMode": "grid",
-        "wifiEnabled": true
+        "wifiEnabled": false
     },
     "nightLight": {
         "autoSchedule": true,
