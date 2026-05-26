@@ -3,6 +3,7 @@
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
+export CLIPSSH_HOST=hiro@code-server
 
 setopt append_history
 setopt hist_ignore_all_dups
@@ -13,4 +14,7 @@ alias cat='bat'
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+
+alias wpaudit="kitten ssh -t code-server 'cd ~/code/Work\ Projects/WPAudit && exec \$SHELL -l'"
+
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
