@@ -1,7 +1,7 @@
 #!/bin/bash
 # dp1-scroll.sh
 # Usage: ./dp1-scroll.sh next|prev
-# This script looks up all workspaces on monitor DP-3 and
+# This script looks up all workspaces on monitor DP-7 and
 # switches to the next or previous workspace in numeric order.
 
 if [ -z "$1" ]; then
@@ -11,17 +11,17 @@ fi
 
 direction="$1"
 
-# Get the active workspace on monitor DP-3.
-current_ws=$(hyprctl activeworkspace -j | jq -r 'select(.monitor=="DP-3") | .id')
+# Get the active workspace on monitor DP-7.
+current_ws=$(hyprctl activeworkspace -j | jq -r 'select(.monitor=="DP-7") | .id')
 if [ -z "$current_ws" ]; then
     current_ws=0
 fi
 
-# Get a sorted list of workspace IDs on DP-3.
-ws_ids=( $(hyprctl workspaces -j | jq -r '.[] | select(.monitor=="DP-3" and (.name | contains("special") | not)) | .id' | sort -n))
+# Get a sorted list of workspace IDs on DP-7.
+ws_ids=( $(hyprctl workspaces -j | jq -r '.[] | select(.monitor=="DP-7" and (.name | contains("special") | not)) | .id' | sort -n))
 
 if [ ${#ws_ids[@]} -eq 0 ]; then
-    echo "No workspaces found on DP-3."
+    echo "No workspaces found on DP-7."
     exit 1
 fi
 
@@ -55,5 +55,5 @@ else
     exit 1
 fi
 
-echo "Switching to workspace $target_ws on DP-3..."
+echo "Switching to workspace $target_ws on DP-7..."
 hyprctl dispatch workspace "$target_ws"
