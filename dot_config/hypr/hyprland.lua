@@ -42,7 +42,7 @@ hl.env("XCURSOR_THEME", "Notwaita-Gray")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "Notwaita-Gray")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
-hl.env("PATH", "$HOME/.local/bin:$PATH")
+hl.env("PATH", (os.getenv("HOME") or "") .. "/.local/bin:" .. (os.getenv("PATH") or ""))
 
 
 -----------------
